@@ -1,0 +1,50 @@
+<p>Bienvenido!</p>
+
+<form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Ingrese el tipo de Dato</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ingrese el Ruc de la Empresa</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ingrese el nombre de la Empresa</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Ingrese el valor</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+  </form>
+
+  <div class="col s7">
+    <table>
+    <thead>
+    <th>Tipo</th>
+    <th>RUC</th>
+    <th>Empresa</th>
+    <th>Monto</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let gasto of gastoService.gastos">
+    <td>{{gasto.tipo}}</td>
+    <td>{{gasto.empresa}}</td>
+    <td>{{gasto.ruc}}</td>
+    <td>{{gasto.monto}}</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+   <div class="card-action">
+    <div class="input-field col s12">
+    <button class="btn btn-outline-warning">Grabar</button>
+    <button class="btn btn-outline-warning">Borrar</button>
+    </div>
+    </div>
+
+    <button class="btn btn-outline-warning"(click)="resetForm(gastoForm)">Borrar</button>
+    <form #gastoForm="ngForm" (ngSubmit)="addGasto(gastoForm)"></form>
+   
